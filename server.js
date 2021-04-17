@@ -34,7 +34,7 @@ client.connect().then(() => {
 
   function renderHomePage(request, response) {
 
-    response.render('./pages/index.ejs');
+    response.render('pages/index.ejs');
     
   }
 
