@@ -9,7 +9,7 @@ const pg = require('pg');
 const DATABASE_URL=process.env.DATABASE_URL;
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 // app.use(cors());
 // app.use(express.urlencoded());
 app.set('view engine', 'ejs');
@@ -23,8 +23,18 @@ client.connect().then(() => {
     })
   });
 
-  
+  app.get('/hello', renderHomePage);
 
   app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 
+
+
+
+
+
+  function renderHomePage(request, response) {
+
+    response.render('./pages/index.ejs');
+    
+  }
 
